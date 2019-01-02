@@ -1,18 +1,18 @@
-const db = require('../util/database');
+const moment = require('moment');
 
-module.exports = class Category {
-  constructor(id, title, date){
-    this.id = id;
-    this.title = title;
-    this.date = date;
-  }
+const Category = require('../models/category');
 
-  // READ
-  static fetchAll(){
-    return db.execute('SELECT * FROM category');
-  }
+/* READ *****************************/
 
-  static getCount(){
-    return db.execute('SELECT COUNT(*) as count FROM category');
-  }
-}
+exports.getCategory = (req, res, next) => {
+    Category.fetchAll()
+        .then(([rows]) => {
+            console.log(JSON.stringify(rows, ["id", "title", "date"]));
+            //res.send(JSON.stringify(rows));
+            res.render('category', {
+                data: rows,
+                title: 'Post List',
+            });
+        })
+        .catch(err => console.log(err));
+};

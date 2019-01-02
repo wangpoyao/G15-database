@@ -9,8 +9,8 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Bootstrap Theme</title>
+  <!-- <link rel="stylesheet" href="../public/stylesheets/style.css"> -->
+  <title>淡江大學多媒體設備報修系統</title>
   <script>
     function editPost(id){
             window.location.href = "/post/edit?id=" + id;
@@ -25,44 +25,46 @@
 
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+    
     <div class="container">
-      <a href="/" class="navbar-brand">Blogen</a>
+      <a href="https://www.tku.edu.tw/" class="navbar-brand">Tamkang University</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item px-2">
-            <a href="/" class="nav-link active">Dashboard</a>
+            <a href="/" class="nav-link active">報修總覽</a>
           </li>
           <li class="nav-item px-2">
-            <a href="/post" class="nav-link">Posts</a>
+            <a href="/post" class="nav-link">報修單管理</a>
           </li>
           <li class="nav-item px-2">
-            <a href="/category" class="nav-link">Categories</a>
+            <a href="/category" class="nav-link">故障類別</a>
           </li>
           <li class="nav-item px-2">
-            <a href="/user" class="nav-link">Users</a>
+            <a href="/users" class="nav-link">維修人員</a>
           </li>
         </ul>
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown mr-3">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-              <i class="fas fa-user"></i> Welcome Brad
+              <!-- <i class="fas fa-user"></i> 維修人員-王柏堯 -->
+              <i class="fas fa-user-check"></i> 維修人員-王柏堯
             </a>
             <div class="dropdown-menu">
               <a href="/user/profile" class="dropdown-item">
-                <i class="fas fa-user-circle"></i> Profile
+                <i class="fas fa-user-circle"></i> 個人資料管理
               </a>
               <a href="/user/setting" class="dropdown-item">
-                <i class="fas fa-cog"></i> Settings
+                <i class="fas fa-cog"></i> 設定
               </a>
             </div>
           </li>
           <li class="nav-item">
             <a href="/user/logout" class="nav-link">
-              <i class="fas fa-user-times"></i> Logout
+              <i class="fas fa-user-times"></i> 登出
             </a>
           </li>
         </ul>
@@ -71,12 +73,13 @@
   </nav>
 
   <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-primary text-white">
+  <header id="main-header" class="py-2 bg-danger text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-cog"></i> Dashboard</h1>
+            <!-- <i class="fas fa-cog"></i> 淡江大學多媒體報修系統</h1> -->
+            <i class="fas fa-tools"></i>✍ 淡江大學-多媒體報修系統</h1>
         </div>
       </div>
     </div>
@@ -88,17 +91,17 @@
       <div class="row">
         <div class="col-md-3">
           <a href="/post/add" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
-            <i class="fas fa-plus"></i> Add Post
+            <i class="fas fa-plus"></i> 新增報修單
           </a>
         </div>
         <div class="col-md-3">
           <a href="/category/add" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal">
-            <i class="fas fa-plus"></i> Add Category
+            <i class="fas fa-plus"></i> 新增故障類別
           </a>
         </div>
         <div class="col-md-3">
           <a href="/user/add" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
-            <i class="fas fa-plus"></i> Add User
+            <i class="fas fa-plus"></i> 新增維修人員
           </a>
         </div>
       </div>
@@ -112,15 +115,16 @@
         <div class="col-md-9">
           <div class="card">
             <div class="card-header">
-              <h4>Latest Posts</h4>
+              <h4 class="font-weight-bold">✔ 最新維修單 :</h4>
             </div>
-            <table class="table table-striped">
+            <table class="table table-striped table-Secondary">
               <thead class="thead-dark">
                 <tr>
-                  <th>#</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Date</th>
+                  <th>編號</th>
+                  <th>教室</th>
+                  <th>故障類別</th>
+                  <th>登錄日期</th>
+                  <th>詳細內容</th>
                   <th></th>
                 </tr>
               </thead>
@@ -140,8 +144,11 @@
                     <%= data[i].date %>
                   </td>
                   <td>
+                      <%= data[i].article %>
+                  </td>
+                  <td>
                     <button value="Details" class="btn btn-secondary" onclick="editPost('<%= data[i].id %>')">
-                      <i class="fas fa-angle-double-right"></i> Details
+                      ✎ 編輯
                     </button>
                   </td>
                 </tr>
@@ -153,34 +160,35 @@
         <div class="col-md-3">
           <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
-              <h3>Posts</h3>
+              <h3>報修單數量</h3>
               <h4 class="display-4">
-                <i class="fas fa-pencil-alt"></i>
+                <i class="fas fa-paperclip"></i>
+                <!-- pencil-alt -->
                 <%= postCount %>
               </h4>
-              <a href="/post" class="btn btn-outline-light btn-sm">View</a>
+              <a href="/post" class="btn btn-outline-light btn-sm">檢視</a>
             </div>
           </div>
 
           <div class="card text-center bg-success text-white mb-3">
             <div class="card-body">
-              <h3>Categories</h3>
+              <h3>故障類別數量</h3>
               <h4 class="display-4">
-                <i class="fas fa-folder"></i>
+                <i class="fas fa-database"></i>
                 <%= categoryCount %>
               </h4>
-              <a href="/category" class="btn btn-outline-light btn-sm">View</a>
+              <a href="/category" class="btn btn-outline-light btn-sm">檢視</a>
             </div>
           </div>
 
           <div class="card text-center bg-warning text-white mb-3">
             <div class="card-body">
-              <h3>Users</h3>
+              <h3>維修人員數量</h3>
               <h4 class="display-4">
                 <i class="fas fa-users"></i>
                 <%= userCount %>
               </h4>
-              <a href="/user" class="btn btn-outline-light btn-sm">View</a>
+              <a href="/users" class="btn btn-outline-light btn-sm">檢視</a>
             </div>
           </div>
         </div>
@@ -196,7 +204,7 @@
           <p class="lead text-center">
             Copyright &copy;
             <span id="year"></span>
-            Blogen
+            淡江大學多媒體報修系統
           </p>
         </div>
       </div>
@@ -211,7 +219,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title">Add Post</h5>
+          <h5 class="modal-title">新增報修單</h5>
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -219,16 +227,16 @@
         <div class="modal-body">
           <form id="addPost" action="/post/add" method="post">
             <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" name="title" class="form-control" value="" placeholder="Title">
+              <label for="title">教室</label>
+              <input type="text" name="title" class="form-control" value="" placeholder="例：E201">
             </div>
             <div class="form-group">
-              <label for="postdate">Date</label>
+              <label for="postdate">日期</label>
               <input name="date" type="date" id="postdate" class="form-control" value="<%= new Date() %>">
             </div>
 
             <div class="form-group">
-              <label for="category">Category</label>
+              <label for="category">故障類別</label>
               <select class="form-control" name="category">
                 <% 
                   for ( var i = 0 ; i < categories.length ; i++){ 
@@ -249,13 +257,13 @@
               <small class="form-text text-muted">Max Size 3mb</small>
             </div> -->
             <div class="form-group">
-              <label for="body">Body</label>
+              <label for="body">故障陳述 ：</label>
               <textarea name="editor1" class="form-control"></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-dismiss="modal" onclick="addPost()">Save Changes</button>
+          <button class="btn btn-primary" data-dismiss="modal" onclick="addPost()">儲存！</button>
         </div>
       </div>
     </div>
@@ -266,7 +274,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-success text-white">
-          <h5 class="modal-title">Add Category</h5>
+          <h5 class="modal-title">新增故障類別</h5>
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -274,13 +282,13 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="title">Title</label>
-              <input type="text" class="form-control">
+              <label for="title">（請確認類別種類）</label>
+              <input type="text" class="form-control" placeholder="例：麥克風">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-success" data-dismiss="modal">Save Changes</button>
+          <button class="btn btn-success" data-dismiss="modal">儲存！</button>
         </div>
       </div>
     </div>
@@ -291,7 +299,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header bg-warning text-white">
-          <h5 class="modal-title">Add User</h5>
+          <h5 class="modal-title">新增維修人員</h5>
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -299,25 +307,25 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control">
+              <label for="name">姓名</label>
+              <input type="text" class="form-control" placeholder="例：王大明">
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control">
+              <label for="email">電子信箱</label>
+              <input type="email" class="form-control" placeholder="例：tamkang@tku.edu.tw">
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
+              <label for="password">登入密碼</label>
               <input type="password" class="form-control">
             </div>
             <div class="form-group">
-              <label for="password2">Confirm Password</label>
+              <label for="password2">再次輸入密碼</label>
               <input type="password" class="form-control">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-warning" data-dismiss="modal">Save Changes</button>
+          <button class="btn btn-warning" data-dismiss="modal">儲存！</button>
         </div>
       </div>
     </div>
