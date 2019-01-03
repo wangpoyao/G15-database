@@ -7,7 +7,7 @@ const Category = require('../models/category');
 exports.getCategory = (req, res, next) => {
     Category.fetchAll()
         .then(([rows]) => {
-            console.log(JSON.stringify(rows, ["id", "title", "date"]));
+            console.log(JSON.stringify(rows, ["pNo", "pName", "pStock"]));
             //res.send(JSON.stringify(rows));
             res.render('category', {
                 data: rows,

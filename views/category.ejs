@@ -98,14 +98,14 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4>USER</h4>
+                            <h4>category</h4>
                         </div>
                         <table class="table table-striped">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>title</th>
-                                    <th>date</th>
+                                    <th>pName</th>
+                                    <th>pStock</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -113,13 +113,13 @@
                                 <% for(var i=0; i< data.length; i++) { %>
                                     <tr>
                                         <td>
-                                            <%= data[i].id %>
+                                            <%= data[i].pNo %>
                                         </td>
                                         <td>
-                                            <%= data[i].title %>
+                                            <%= data[i].pName %>
                                         </td>
                                         <td>
-                                            <%= data[i].date %>
+                                            <%= data[i].pStock %>
                                         </td>
                                         <td>
                                             <button value="Details" class="btn btn-secondary" onclick="Edit('<%= data[i].id %>')">

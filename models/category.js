@@ -1,18 +1,18 @@
 const db = require('../util/database');
 
 module.exports = class Category {
-    constructor(id, title, date) {
-        this.id = id;
-        this.title = title;
-        this.date = date;
+    constructor(pNo, pName, pStock) {
+        this.pNo = pNo;
+        this.pName = pName;
+        this.pStock = pStock;
     }
 
     // READ
     static fetchAll() {
-        return db.execute('SELECT * FROM category');
+        return db.execute('SELECT * FROM part');
     }
 
     static getCount() {
-        return db.execute('SELECT COUNT(*) as count FROM category');
+        return db.execute('SELECT COUNT(*) as count FROM part');
     }
 }

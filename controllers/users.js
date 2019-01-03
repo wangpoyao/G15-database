@@ -9,7 +9,7 @@ const Category = require('../models/category');
 exports.getUsers = (req, res, next) => {
     User.fetchAll()
         .then(([rows]) => {
-            console.log(JSON.stringify(rows, ["id", "name", "email", "password"]));
+            console.log(JSON.stringify(rows, ["sId", "name", "birthday"]));
             //res.send(JSON.stringify(rows));
             res.render('users', {
                 data: rows,

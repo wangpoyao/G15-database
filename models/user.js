@@ -1,19 +1,18 @@
 const db = require('../util/database');
 
 module.exports = class User {
-    constructor(id, name, email, password) {
-        this.id = id;
+    constructor(sId, name, birthday) {
+        this.sId = sId;
         this.name = name;
-        this.email = email;
-        this.password = password;
+        this.birthday = birthday;
     }
 
     // READ
     static fetchAll() {
-        return db.execute('SELECT * FROM user');
+        return db.execute('SELECT * FROM student');
     }
 
     static getCount() {
-        return db.execute('SELECT COUNT(*) as count FROM user');
+        return db.execute('SELECT COUNT(*) as count FROM student');
     }
 }
