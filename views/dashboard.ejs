@@ -63,7 +63,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a href="/user/logout" class="nav-link">
+            <a href="/signout" class="nav-link">
               <i class="fas fa-user-times"></i> 登出
             </a>
           </li>
@@ -102,6 +102,11 @@
         <div class="col-md-3">
           <a href="/user/add" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal">
             <i class="fas fa-plus"></i> 新增維修人員
+          </a>
+        </div>
+		<div class="col-md-3">
+          <a href="/user/add" class="btn btn-block" data-toggle="modal" data-target="#">
+            <i class="fas fa-plus"></i> 新增報修教室
           </a>
         </div>
       </div>
@@ -343,7 +348,6 @@
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
-
     CKEDITOR.replace('editor1');
   </script>
 </body>
