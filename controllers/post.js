@@ -1,7 +1,7 @@
 const moment = require('moment');
 
 const Post = require('../models/post');
-
+const Category = require('../models/category');
 /* READ *****************************/
 
 exports.getPosts = (req, res, next) => {

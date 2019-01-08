@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="../public/stylesheets/style.css"> -->
-  <title>淡江大學多媒體設備報修系統</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bootstrap Theme</title>
     <script>
         function Edit(id){
             window.location.href = "/post/edit?id=" + id;
@@ -20,65 +18,62 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
-      
-      <div class="container">
-        <a href="https://www.tku.edu.tw/" class="navbar-brand">Tamkang University</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav">
-            <li class="nav-item px-2">
-              <a href="/" class="nav-link active">報修總覽</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="/post" class="nav-link">報修單管理</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="/category" class="nav-link">故障類別</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="/users" class="nav-link">維修人員</a>
-            </li>
-          </ul>
-  
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown mr-3">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <!-- <i class="fas fa-user"></i> 維修人員-王柏堯 -->
-                <i class="fas fa-user-check"></i> 維修人員-王柏堯
-              </a>
-              <div class="dropdown-menu">
-                <a href="/user/profile" class="dropdown-item">
-                  <i class="fas fa-user-circle"></i> 個人資料管理
-                </a>
-                <a href="/user/setting" class="dropdown-item">
-                  <i class="fas fa-cog"></i> 設定
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a href="/signout" class="nav-link">
-                <i class="fas fa-user-times"></i> 登出
-              </a>
-            </li>
-          </ul>
+        <div class="container">
+            <a href="." class="navbar-brand">Blogen</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-2">
+                        <a href="/" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="post" class="nav-link active">Posts</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="category" class="nav-link">Categories</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a href="users" class="nav-link">Users</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <i class="fas fa-user"></i> Welcome Brad
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="profile.html" class="dropdown-item">
+                                <i class="fas fa-user-circle"></i> Profile
+                            </a>
+                            <a href="settings.html" class="dropdown-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link">
+                            <i class="fas fa-user-times"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
-  <!-- HEADER -->
-  <header id="main-header" class="py-2 bg-danger text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h1>
-            <!-- <i class="fas fa-cog"></i> 淡江大學多媒體報修系統</h1> -->
-            <i class="fas fa-tools"></i>✍ 淡江大學-多媒體報修系統</h1>
+    <!-- HEADER -->
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>
+                        <i class="fas fa-pencil-alt"></i> Posts</h1>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
     <!-- SEARCH -->
     <section id="search" class="py-4 mb-4 bg-light">
@@ -103,15 +98,15 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h4>報修單管理</h4>
+                            <h4>Latest Posts</h4>
                         </div>
                         <table class="table table-striped">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>#</th>
-                                    <th>教室</th>
-                                    <th>故障內容</th>
-                                    <th>日期</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -125,7 +120,7 @@
                                             <%= data[i].title %>
                                         </td>
                                         <td>
-                                            <%= data[i].article %>
+                                            <%= data[i].category %>
                                         </td>
                                         <td>
                                             <%= data[i].date %>
@@ -173,7 +168,7 @@
                 <div class="col">
                     <p class="lead text-center">
                         Copyright &copy;
-                        <span id="year"></span> Tamkang University
+                        <span id="year"></span> Blogen
                     </p>
                 </div>
             </div>
